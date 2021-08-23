@@ -2,4 +2,4 @@
 Repo for writeups to CTF challenges
 
 ### Attended CTFs
-* [corCTF 2021](https://github.com/bf-s/CTF-Writeups/tree/main/corCTF-2021#corctf-2021)
+* [corCTF 2021](https://bf-s.github.io/CTF-Writeups/corCTF-2021)
