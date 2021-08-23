@@ -2,6 +2,7 @@
 
 Written by [Balberg Flagg & Service AS](https://ctftime.org/team/152116)
 <br>
+<br>
 ![corCTF](https://raw.githubusercontent.com/bf-s/CTF-Writeups/main/corCTF-2021/res/disc_crusader.jpg)
 
 ---
