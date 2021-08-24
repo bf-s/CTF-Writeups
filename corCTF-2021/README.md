@@ -144,7 +144,9 @@ Running this program decrypts the flag.enc file and returns the flag:
 
 <details>
 <summary> Flag </summary>
+	
 <pre> <b> corctf{b4s3d_4nd_f1bp!113d}</b> </pre>
+	
 </details>
 
 ---
@@ -195,6 +197,7 @@ Now looking at the code in the main() function again on line 57-62. We can see t
 <summary> check: </summary>
 
 ![Value of check in Ghidra](babyrev/Ghidra_babyrev_check.jpg)
+	
 ```
 check = {0x5f,0x40,0x5a,0x15,0x75,0x45,0x62,0x53,0x75,0x46,0x52,0x43,0x5f, 0x75,0x50,0x52,0x75,0x5f,0x5c,0x4f}
 ```
@@ -236,12 +239,15 @@ for n in range(len(check)):
 Which leaves us with the flag:
 <details>
 <summary> Flag: </summary>
+	
 <b> 
 
 ```
 corctf{see?_rEv_aint_so_bad}
 ```
+	
 </b>
+	
 </details>
 
 ---
