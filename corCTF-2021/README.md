@@ -147,7 +147,7 @@ Running this program decrypts the flag.enc file and returns the flag:
 <pre> <b> corctf{b4s3d_4nd_f1bp!113d}</b> </pre>
 </details>
 
-
+---
 
 ## rev/babyrev
 
@@ -244,7 +244,7 @@ corctf{see?_rEv_aint_so_bad}
 </b>
 </details>
 
-
+---
 
 ## crypto/bank
 ### About the task
