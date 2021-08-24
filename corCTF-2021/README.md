@@ -67,7 +67,7 @@ Flag:
 ```
 corctf{1m4g1n3_cp_g0lf_6a318dfe}
 ```
----
+
 <br>
 <br>
 
@@ -415,3 +415,5 @@ corctf{4lw4ys_d3str0y_y0ur_f4k3s}
 ```
 
 </details>
+
+---
