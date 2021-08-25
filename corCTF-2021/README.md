@@ -145,10 +145,12 @@ print(flag)
  
 Running this program decrypts the flag.enc file and returns the flag:
 
-<details>
-<summary> Flag </summary>
-<pre> <b> corctf{b4s3d_4nd_f1bp!113d}</b> </pre>
-</details>
+
+Flag:
+```
+corctf{b4s3d_4nd_f1bp!113d}
+```
+
 
 <br>
 <br>
@@ -239,15 +241,12 @@ for n in range(len(check)):
     print(chr(charToPrint),end="")
 ```
 Which leaves us with the flag:
-<details>
-<summary> Flag: </summary>
-<b> 
 
+Flag:
 ```
 corctf{see?_rEv_aint_so_bad}
 ```
-</b>
-</details>
+
 
 <br>
 <br>
@@ -407,13 +406,9 @@ conn.close()
 
 This program might seeem daunting at first, but most of the lines are just sending or receiving data over the nc-connection. The only real logic in this program is exactly the tactic I described above.
 
-<details>
-<summary> Flag </summary>
-
+Flag:
 ```
 corctf{4lw4ys_d3str0y_y0ur_f4k3s}
 ```
-
-</details>
 
 ---
