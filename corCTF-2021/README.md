@@ -1,4 +1,4 @@
-# corCTF 2021
+# Writeup for corCTF 2021
 
 Written by [Balberg Flagg & Service AS](https://ctftime.org/team/152116)
 <br>
