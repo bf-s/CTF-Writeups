@@ -339,7 +339,7 @@ It turns out that the x gate will inverse any qubit that is in the 0/1 basis and
 * If it fails &#8594; apply a new x-gate &#8594; *measure with 0/1 basis*
 * If it succeeds &#8594; *measure with +/- basis*
 
-There are still 50 elements in the array *bill* so I decided to automate the rest of the task with a python program. If you choose to try applying the solution manually you will find that the connection will be by the server after a little while, so you cannot really get all the qubits in "your bill". I used pwntools to control my nc connection and wrote the following python program to get the flag:
+There are still 50 elements in the array *bill* so I decided to automate the rest of the task with a python program. If you choose to try applying the solution manually you will find that the connection will be terminated by the server after a little while, so you cannot really get all the qubits in "your bill". I used pwntools to control my nc connection and wrote the following python program to get the flag:
 
 ```python
 from pwn import *
