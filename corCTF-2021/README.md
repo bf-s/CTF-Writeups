@@ -330,7 +330,7 @@ At this point it is time to start exploring what the other option for handling q
 
 ![](bank/vsCode_xGateDef.jpg)
 
-This seems like 3 really uneventfull lines of code however they hold the key to solving the task. After some structured testing I figured out that by applying the 'X gate' first to an unknown qubit and then trying to verify it the verification will ALWAYS return 'successful' when the qubit has a basis of +/1 and ALWAYS return 'incorrect' when the qubit has a basis of 0/1.
+This seems like 3 really uneventfull lines of code however they hold the key to solving the task. After some structured testing I figured out that by applying the 'X gate' first to an unknown qubit and then trying to verify it the verification will ALWAYS return 'successful' when the qubit has a basis of +/- and ALWAYS return 'incorrect' when the qubit has a basis of 0/1.
 
 It turns out that the x gate will inverse any qubit that is in the 0/1 basis and not do anything to qubits that are in the +/- basis. Therefore we can now make our tactic for how to reliably find out the value of qubits:
 
