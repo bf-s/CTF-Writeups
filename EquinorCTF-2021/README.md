@@ -9,7 +9,7 @@ Written by [Balberg Flagg & Service AS](https://ctftime.org/team/152116)
 *24 solves / 390 points <br>*
 Using all the latest math and crypto libraries, this new Really Solid Algebra system should be practically uncrackable! <br>
 **Author**: null <br>
-**Downloads**: [rsa.py](C:\Users\Heitmann\ctf\equinor\crypto\rsa\rsa.py)  [output.log](C:\Users\Heitmann\ctf\equinor\crypto\rsa\output.log) <br>
+**Downloads**: [rsa.py](/rsa/rsa.py)  [output.log](/rsa/output.log) <br>
 **writeup by**: Heitmann
 
 ### Writeup
