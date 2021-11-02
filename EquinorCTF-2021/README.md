@@ -114,9 +114,9 @@ Verdt å merke seg fra aes.py er at *aes*-objektet som lages med `aes = AES.new(
 Dette vises under med en 48 tegn lang klartekst - nøyaktig 3 blokker, en per linje. Sifferteksten er delt opp i blokker og fordelt med en blokk per linje.
 ```
 Klartekst:
-Jeg er Heitmann
-Jeg er Heitmann
-Jeg er Heitmann
+Equinor CTF AES
+Equinor CTF AES
+Equinor CTF AES
 
 Kryptert med AES i CBC-mode:
 b'\xe3\xb9\xb4\xb6\xadN\xe9\x1b\n\xe2\x94\xa5\xc2;\x04*'
