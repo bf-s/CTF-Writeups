@@ -9,7 +9,7 @@ Written by [Balberg Flagg & Service AS](https://ctftime.org/team/152116)
 *24 solves / 390 points <br>*
 Using all the latest math and crypto libraries, this new Really Solid Algebra system should be practically uncrackable! <br>
 **Author**: null <br>
-**Downloads**: [rsa.py]('Really Solid Algebra'/rsa.py)  [output.log]('Really Solid Algebra'/output.log) <br>
+**Downloads**: [rsa.py](ReallySolidAlgebra/rsa.py)  [output.log](ReallySolidAlgebra/output.log) <br>
 **writeup by**: Heitmann
 
 ### Writeup
@@ -84,7 +84,7 @@ FLAG: **EPT{5qrt_b3_sc4ry_owo}**
 *20 solves / 413 points <br>*
 I heard that all the cool kids down the street had switched to this new cipher. Think it was called Arbitrary Encoding System or something... <br>
 **Author**: null <br>
-**Downloads**: [aes.py]('Arbitrary Encoding System'/aes.py)  [flag.png.enc]('Arbitrary Encoding System'/flag.png.enc) <br>
+**Downloads**: [aes.py](ArbitraryEncodingSystem/aes.py)  [flag.png.enc](ArbitraryEncodingSystem/flag.png.enc) <br>
 **writeup by**: Heitmann
 
 ### Writeup
@@ -141,9 +141,9 @@ img = Image.frombytes('RGB', (2000, 250), f.read(), decoder_name='raw')
 img.show("flag.png")
 ```
 Men enda lettere ved hjelp av generate image i [cyberchef](https://gchq.github.io/CyberChef/#recipe=Generate_Image('RGB',2,2000)).
-![image of cyberchef](/'Arbitrary Encoding System'/cyberchef.png)
+![image of cyberchef](ArbitraryEncodingSystem/cyberchef.png)
 
-![image of flag](/'Arbitrary Encoding System'/flag.png)
+![image of flag](ArbitraryEncodingSystem/flag.png)
 Det er mulig å lese av flagget fra bildet, og vi har løst oppgaven!
 
 FLAG: **EPT{mode_of_operation_is_important}**
