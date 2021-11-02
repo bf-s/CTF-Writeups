@@ -141,9 +141,9 @@ img = Image.frombytes('RGB', (2000, 250), f.read(), decoder_name='raw')
 img.show("flag.png")
 ```
 Men enda lettere ved hjelp av generate image i [cyberchef](https://gchq.github.io/CyberChef/#recipe=Generate_Image('RGB',2,2000)).
-![image of cyberchef](/aes/cyberchef.png)
+![image of cyberchef](/'Arbitrary Encoding System'/cyberchef.png)
 
-![image of flag](/aes/flag.png)
+![image of flag](/'Arbitrary Encoding System'/flag.png)
 Det er mulig å lese av flagget fra bildet, og vi har løst oppgaven!
 
 FLAG: **EPT{mode_of_operation_is_important}**
