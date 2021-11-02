@@ -9,7 +9,7 @@ Written by [Balberg Flagg & Service AS](https://ctftime.org/team/152116)
 *24 solves / 390 points <br>*
 Using all the latest math and crypto libraries, this new Really Solid Algebra system should be practically uncrackable! <br>
 **Author**: null <br>
-**Downloads**: [rsa.py](/rsa/rsa.py)  [output.log](/rsa/output.log) <br>
+**Downloads**: [rsa.py]('Really Solid Algebra'/rsa.py)  [output.log]('Really Solid Algebra'/output.log) <br>
 **writeup by**: Heitmann
 
 ### Writeup
@@ -78,3 +78,72 @@ STR : b'EPT{5qrt_b3_sc4ry_owo}'
 ...
 ```
 FLAG: **EPT{5qrt_b3_sc4ry_owo}**
+
+## Crypto/Arbitrary Encoding System
+### Task
+*20 solves / 413 points <br>*
+I heard that all the cool kids down the street had switched to this new cipher. Think it was called Arbitrary Encoding System or something... <br>
+**Author**: null <br>
+**Downloads**: [aes.py]('Arbitrary Encoding System'/aes.py)  [flag.png.enc]('Arbitrary Encoding System'/flag.png.enc) <br>
+**writeup by**: Heitmann
+
+### Writeup
+Dette er en AES oppgave som inneholder to filer: **AES.py** og **flag.png.enc**. AES.py ble brukt til å kryptere flag.png som resulterte i flag.png.enc. AES en av de ledende blokkryptoalgoritmene som brukes i dag. Det at noe er blokkrypto betyr at algoritmen deler opp klarteksten som skal krypteres i blokker og krypterer hver av disse blokkene. Det vil i praksis si at endrer man et tegn i klarteksen vil hele blokken endres til noe annet. Typisk blokkstørrele er 16 byte. AES er en solid kryptoalgoritme, men slik som ved all krypto finnes det usikre implementasjoner. En av disse skal vi utnytte i oppgaven her.
+
+For å begynne med oppgaven kan vi se på innholdet av **AES.py**:
+```python
+from PIL import Image
+from Crypto.Cipher import AES
+
+img = Image.open('flag.png')
+assert img.mode == 'RGB'
+assert img.height == 250
+assert img.width == 2000
+assert str([b for rgb in [[1, 2, 3], [4, 5, 6], [7, 8, 9]] for b in rgb]) == '[1, 2, 3, 4, 5, 6, 7, 8, 9]'
+data = bytes([b for rgb in img.getdata() for b in rgb])  # flatten
+assert len(data) % 16 == 0
+key = open('/dev/urandom', 'rb').read(16)
+aes = AES.new(key, AES.MODE_ECB)
+ct = aes.encrypt(data)
+open('flag.png.enc', 'wb').write(ct)
+```
+flag.png.enc kan ikke åpnes som et bilde og inneholder masse kryptert data uten smart innhold.
+
+Verdt å merke seg fra aes.py er at *aes*-objektet som lages med `aes = AES.new(key, AES.MODE_ECB)` er i *MODE_ECB*. ECB, electronic code book, er en AES metode som er  vankelig å implemetere trygt og korrekt om man ikke vet hva man gjør. Selv vet jeg det ikke, men jeg har i alle fall lært meg hva dens sikkerhetsrisikoer er. [Denne blogposten](https://tripoloski1337.github.io/crypto/2020/07/12/attacking-aes-ecb.html) viser blant annet hvordan man kan "lure informasjon" ut av ECB-blokker, men det er ikke teknikken vi skal benytte oss av. Det som er spesielt med ECB-modusen i forhold til andre AES-moduser er at alle blokker med lik klartekst krypteres til like blokker med siffertekst.
+
+Dette vises under med en 48 tegn lang klartekst - nøyaktig 3 blokker, en per linje. Sifferteksten er delt opp i blokker og fordelt med en blokk per linje.
+```
+Klartekst:
+Jeg er Heitmann
+Jeg er Heitmann
+Jeg er Heitmann
+
+Kryptert med AES i CBC-mode:
+b'\xe3\xb9\xb4\xb6\xadN\xe9\x1b\n\xe2\x94\xa5\xc2;\x04*'
+b'\xd6f\x12\xf0\xfcg\xc3\xe5b\xd5\xf9\x03f\x90\xc0e'
+b'ru\xdf\xf9&g\xaf\x84\xfd\xed\x83\xdd\x1b\x8f,\x19'
+
+kryptert med AES i ECB-mode:
+b'\x85\xfe\x03g\n\x02R\x1b4\x11\r\x04\xf5Z\x1fR'
+b'\x85\xfe\x03g\n\x02R\x1b4\x11\r\x04\xf5Z\x1fR'
+b'\x85\xfe\x03g\n\x02R\x1b4\x11\r\x04\xf5Z\x1fR'
+```
+Når den ble kryptert i CBC-mode var de tre blokkene ulike og hadde gitt en angriper lite informasjon. Derimot var alle tre krypterte blokker i ECB-mode identiske og forteller en angriper at klarteksen består av identiske blokker det også.
+
+Ettersom flagget vårt er et kryptert bilde kan dette utnyttes. Som vi vil se inneholder bildet store områder med lik farge, som også vil si lik klartekst. Alle disse blokkene vil da krypteres til det samme og vil kunne skape klare skiller mot andre enkeltfarga områder. Hadde det vært et mer komplekst bilde ville ikke dette lengre være et problem.
+
+For å hente ut informasjonen beskrevet over og lese av flagget må man kunne vise bildet. Som vi har sett er hele bildefila med header kryptert og vil derfor ikke kjøre i noe program. Vi må derfor fremstille dette selv. Det er mulig å gjøre det selv med python.
+```python
+from PIL import Image
+
+f = open('flag.png.enc', 'rb')
+img = Image.frombytes('RGB', (2000, 250), f.read(), decoder_name='raw')
+img.show("flag.png")
+```
+Men enda lettere ved hjelp av generate image i [cyberchef](https://gchq.github.io/CyberChef/#recipe=Generate_Image('RGB',2,2000)).
+![image of cyberchef](/aes/cyberchef.png)
+
+![image of flag](/aes/flag.png)
+Det er mulig å lese av flagget fra bildet, og vi har løst oppgaven!
+
+FLAG: **EPT{mode_of_operation_is_important}**
